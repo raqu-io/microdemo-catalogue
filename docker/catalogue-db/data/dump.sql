@@ -5,7 +5,7 @@ GRANT ALL ON socksdb.* TO 'catalogue_user';
 CREATE TABLE IF NOT EXISTS sock (
 	sock_id varchar(40) NOT NULL, 
 	name varchar(20), 
-	description varchar(200), 
+	description varchar(1024),
 	price float, 
 	count int, 
 	image_url_1 varchar(40), 
@@ -28,54 +28,65 @@ CREATE TABLE IF NOT EXISTS sock_tag (
 		REFERENCES tag(tag_id)
 );
 
-INSERT INTO sock VALUES ("6d62d909-f957-430e-8689-b5129c0bb75e", "Weave special", "Limited issue Weave socks.", 17.15, 33, "/catalogue/images/weave1.jpg", "/catalogue/images/weave2.jpg");
-INSERT INTO sock VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "Nerd leg", "For all those leg lovers out there. A perfect example of a swivel chair trained calf. Meticulously trained on a diet of sitting and Pina Coladas. Phwarr...", 7.99, 115, "/catalogue/images/bit_of_leg_1.jpeg", "/catalogue/images/bit_of_leg_2.jpeg");
-INSERT INTO sock VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "Crossed", "A mature sock, crossed, with an air of nonchalance.",  17.32, 738, "/catalogue/images/cross_1.jpeg", "/catalogue/images/cross_2.jpeg");
-INSERT INTO sock VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "SuperSport XL", "Ready for action. Engineers: be ready to smash that next bug! Be ready, with these super-action-sport-masterpieces. This particular engineer was chased away from the office with a stick.",  15.00, 820, "/catalogue/images/puma_1.jpeg", "/catalogue/images/puma_2.jpeg");
-INSERT INTO sock VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "Holy", "Socks fit for a Messiah. You too can experience walking in water with these special edition beauties. Each hole is lovingly proggled to leave smooth edges. The only sock approved by a higher power.",  99.99, 1, "/catalogue/images/holy_1.jpeg", "/catalogue/images/holy_2.jpeg");
-INSERT INTO sock VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "YouTube.sock", "We were not paid to sell this sock. It's just a bit geeky.",  10.99, 801, "/catalogue/images/youtube_1.jpeg", "/catalogue/images/youtube_2.jpeg");
-INSERT INTO sock VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "Figueroa", "enim officia aliqua excepteur esse deserunt quis aliquip nostrud anim",  14, 808, "/catalogue/images/WAT.jpg", "/catalogue/images/WAT2.jpg");
-INSERT INTO sock VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "Classic", "Keep it simple.",  12, 127, "/catalogue/images/classic.jpg", "/catalogue/images/classic2.jpg");
-INSERT INTO sock VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "Colourful", "proident occaecat irure et excepteur labore minim nisi amet irure",  18, 438, "/catalogue/images/colourful_socks.jpg", "/catalogue/images/colourful_socks.jpg");
-INSERT INTO sock VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "Cat socks", "consequat amet cupidatat minim laborum tempor elit ex consequat in",  15, 175, "/catalogue/images/catsocks.jpg", "/catalogue/images/catsocks2.jpg");
+INSERT INTO sock VALUES ("6d62d909-f957-430e-8689-b5129c0bb75e", "Applewood", "Applewood is a traditional farmhouse Cheddar from Ilchester Cheese Company.", 17.15, 33, "/catalogue/images/applewood_1.jpeg", "/catalogue/images/applewood_2.jpeg");
+INSERT INTO sock VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "Cabrales", "A finished Cabrales can be characterised by its strong, penetrating aroma and sharp, acidic, slightly salty taste. It pairs well with red wine, fresh figs, salami, sweet sherry and dry sausages.", 7.99, 115, "/catalogue/images/cabrales_1.jpeg", "/catalogue/images/cabrales_2.jpeg");
+INSERT INTO sock VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "Cheddar", "Cheddar cheese, the most widely purchased and eaten cheese globally, is always made from cow''s milk. It is a hard cheese with a slightly crumbly texture if properly cured, and if it is too young, the texture is smooth.",  17.32, 738, "/catalogue/images/cheddar_1.jpeg", "/catalogue/images/cheddar_2.jpeg");
+INSERT INTO sock VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "Camembert", "The fresh Camembert cheese is bland, hard and crumbly in texture. Young Camembert has a milky and sweet taste.",  15.00, 820, "/catalogue/images/camembert_1.jpeg", "/catalogue/images/camembert_2.jpeg");
+INSERT INTO sock VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "Roquefort", "Roquefort is a popular French cheese, reported to be a favourite of Emperor Charlemagne. It is called the ''cheese of kings and popes'' in France.",  22.99, 1, "/catalogue/images/roquefort_1.jpeg", "/catalogue/images/roquefort_2.jpeg");
+INSERT INTO sock VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "Brie", "Brie is the best known French cheese and has the nickname 'The Queen of Cheese'. Brie is a soft cheese named after the French region Brie, where it was originally created. Several hundred years ago, Brie was one of the tributes which had to be paid to the French kings.",  10.99, 801, "/catalogue/images/brie_1.jpeg", "/catalogue/images/brie_2.jpeg");
+INSERT INTO sock VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "Manchego", "The Manchego cheese is produced in the La Mancha region of Spain, which is also home to Don Quixote.",  14, 808, "/catalogue/images/manchego_1.jpeg", "/catalogue/images/manchego_2.jpeg");
+INSERT INTO sock VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "Goat Nevat", "Goat Nevat or simply Nevat cheese is produced in the Barcelona region of Spain. Pasteurised goat’s milk is used while making this cheese.",  12, 127, "/catalogue/images/nevat_1.jpeg", "/catalogue/images/nevat_2.jpeg");
+INSERT INTO sock VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "Chesire", "Dense and crumbly, Cheshire is made using vegetarian rennet and pasteurised cow’s milk.",  18, 438, "/catalogue/images/chesire_1.jpeg", "/catalogue/images/chesire_2.jpeg");
+INSERT INTO sock VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "Cottage Cheese", "Cottage cheese is a cheese curd product with a mild flavour. The curd is drained but not pressed, so some whey remains and retains moisture.",  15, 175, "/catalogue/images/cottage_1.jpeg", "/catalogue/images/cottage_2.jpeg");
 
-INSERT INTO tag (name) VALUES ("brown");
-INSERT INTO tag (name) VALUES ("geek");
-INSERT INTO tag (name) VALUES ("formal");
-INSERT INTO tag (name) VALUES ("blue");
-INSERT INTO tag (name) VALUES ("skin");
-INSERT INTO tag (name) VALUES ("red");
-INSERT INTO tag (name) VALUES ("action");
-INSERT INTO tag (name) VALUES ("sport");
-INSERT INTO tag (name) VALUES ("black");
-INSERT INTO tag (name) VALUES ("magic");
-INSERT INTO tag (name) VALUES ("green");
+INSERT INTO tag (tag_id, name) VALUES (1, "spain");
+INSERT INTO tag (tag_id, name) VALUES (2, "uk");
+INSERT INTO tag (tag_id, name) VALUES (3, "france");
+INSERT INTO tag (tag_id, name) VALUES (4, "intense");
+INSERT INTO tag (tag_id, name) VALUES (5, "hard");
+INSERT INTO tag (tag_id, name) VALUES (6, "soft");
+INSERT INTO tag (tag_id, name) VALUES (7, "firm");
+INSERT INTO tag (tag_id, name) VALUES (8, "aged");
+INSERT INTO tag (tag_id, name) VALUES (9, "goat");
+INSERT INTO tag (tag_id, name) VALUES (10, "cow");
+INSERT INTO tag (tag_id, name) VALUES (11, "sheep");
 
 INSERT INTO sock_tag VALUES ("6d62d909-f957-430e-8689-b5129c0bb75e", "2");
-INSERT INTO sock_tag VALUES ("6d62d909-f957-430e-8689-b5129c0bb75e", "9");
-INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "4");
-INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "5");
-INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "4");
-INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "6");
-INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "7");
-INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "3");
-INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "8");
-INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "9");
+INSERT INTO sock_tag VALUES ("6d62d909-f957-430e-8689-b5129c0bb75e", "10");
+INSERT INTO sock_tag VALUES ("6d62d909-f957-430e-8689-b5129c0bb75e", "5");
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "1");
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "9");
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "10");
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "11");
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "7");
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "1");
+INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "5");
+INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "10");
+INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "2");
 INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "3");
-INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "10");
-INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "7");
-INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "2");
+INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "10");
+INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "4");
+INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "6");
+INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "3");
+INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "4");
+INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "11");
+INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "6");
 INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "3");
-INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "3");
+INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "10");
+INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "6");
+INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "1");
+INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "7");
 INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "11");
-INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "4");
 INSERT INTO sock_tag VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "1");
-INSERT INTO sock_tag VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "11");
-INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "1");
-INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "4");
-INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "1");
-INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "11");
-INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "3");
+INSERT INTO sock_tag VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "6");
+INSERT INTO sock_tag VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "9");
+INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "2");
+INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "5");
+INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "10");
+INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "8");
+INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "2");
+INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "6");
+INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "10");
 
 
 

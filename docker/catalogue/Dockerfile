@@ -1,11 +1,11 @@
-FROM golang:1.7
+FROM arm64v8/golang:1.17-alpine3.15
 
 COPY . /go/src/github.com/microservices-demo/catalogue
 WORKDIR /go/src/github.com/microservices-demo/catalogue
 
-RUN go get -u github.com/FiloSottile/gvt
-RUN gvt restore && \
-    CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /app github.com/microservices-demo/catalogue/cmd/cataloguesvc
+RUN apk add --no-cache git build-base
+#RUN go get -u github.com/FiloSottile/gvt
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o /app github.com/raqu-io/microdemo-catalogue/cmd/cataloguesvc
 
 FROM alpine:3.4
 
